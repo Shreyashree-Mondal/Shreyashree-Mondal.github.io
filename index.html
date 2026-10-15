@@ -70,7 +70,12 @@ main h2{font-size:28px;font-weight:700;margin-bottom:18px;padding-bottom:10px;bo
 .job li{margin-bottom:6px}
 
 /* Projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.filters button{font:inherit;font-size:15px;cursor:pointer;color:var(--ink);background:var(--panel);border:1.5px solid var(--line);border-radius:999px;padding:6px 15px}
+.filters button:hover{border-color:var(--blue)}
+.filters button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--panel)}
 .project{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:18px}
+.project.hidden{display:none}
 .project.featured{border-left:6px solid var(--blue)}
 .project header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
 .project h3{font-size:21px;font-weight:700}
@@ -78,12 +83,34 @@ main h2{font-size:28px;font-weight:700;margin-bottom:18px;padding-bottom:10px;bo
 .stack{color:var(--ink-soft);font-size:14.5px;margin:6px 0 12px}
 .why{margin:0 0 8px;max-width:72ch}
 .why b{color:var(--blue)}
-.result{margin:0;max-width:72ch}
+.result{margin:0 0 8px;max-width:72ch}
+.more{display:none;max-width:72ch}
+.more.open{display:block}
+.more p{margin:8px 0}
+.toggle{font:inherit;font-weight:600;font-size:15px;background:none;border:0;color:var(--blue);cursor:pointer;padding:4px 0;text-decoration:underline;text-underline-offset:3px}
 .metrics{display:flex;flex-wrap:wrap;gap:22px;margin:14px 0 4px}
 .metric strong{display:block;font:800 28px/1 "Bricolage Grotesque",sans-serif;color:var(--ink)}
 .metric span{font-size:13.5px;color:var(--ink-soft)}
 .plinks{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-weight:600;font-size:15.5px}
 .muted{color:var(--ink-soft);font-style:italic;font-size:15px}
+
+/* Toxic Beauty explainer */
+.tb-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tb-tab{font:inherit;font-size:14.5px;color:var(--ink);background:transparent;cursor:pointer;border:1.5px solid var(--line);border-radius:999px;padding:5px 14px}
+.tb-tab:hover{border-color:var(--blue)}
+.tb-tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:var(--panel)}
+.tb-panel{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--bg);max-width:72ch}
+.tb-panel[hidden]{display:none}
+.tb-panel h4{margin:0 0 4px;font:700 16px/1.3 "Bricolage Grotesque",sans-serif}
+.tb-panel p{margin:0 0 8px;font-size:15.5px}
+.tb-big{font:800 30px/1.1 "Bricolage Grotesque",sans-serif;color:var(--blue)}
+.tb-big small{display:block;font:400 13.5px/1.4 "Source Sans 3",sans-serif;color:var(--ink-soft)}
+.tb-bar{display:flex;height:22px;border-radius:8px;overflow:hidden;background:var(--line);margin:10px 0 6px}
+.tb-bar span{display:block;height:100%;transition:opacity .3s}
+.tb-serious{background:var(--saffron)} .tb-other{background:var(--ink-soft)}
+.tb-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
+.tb-legend button{font:inherit;color:var(--ink);background:none;border:0;cursor:pointer;padding:2px 0;opacity:.65}
+.tb-legend button[aria-pressed="true"]{opacity:1;font-weight:600;text-decoration:underline}
 
 .twocol{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .plain{list-style:none;padding:0;margin:0}
@@ -112,7 +139,7 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
     <div class="photo"><img src="photo.jpeg" alt="Photo of Shreyashree Mondal"></div>
     <h1>Shreyashree Mondal</h1>
     <p class="role">Data Scientist with a SQL and data engineering foundation</p>
-    <p class="status">Relocating to India and open to roles anywhere in the country. Available to join from October 2026.</p>
+    <p class="status">Relocating to India and open to roles anywhere in the country. Available to join from October 27, 2026.</p>
 
     <ul class="facts">
       <li>
@@ -126,6 +153,15 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
       <li>
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
         <div><a href="mailto:shreyashreemanai@gmail.com">shreyashreemanai@gmail.com</a><small>Email</small></div>
+      </li>
+      <!-- Phone lines: delete these two <li> blocks if you do not want numbers on a public page -->
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <div><a href="https://wa.me/917583943470" target="_blank" rel="noopener">+91 75839 43470</a><small>WhatsApp and email preferred, not regular calls</small></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <div><a href="tel:+13466643838">(346) 664-3838</a><small>US number</small></div>
       </li>
     </ul>
 
@@ -142,9 +178,9 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
       <h2 id="about-h">About me</h2>
       <p class="lead">I turn messy, high-stakes data into reports, models and tools that people can actually use.</p>
       <p>I'm an M.S. graduate in Data Science &amp; AI from the University of Houston (GPA 3.9/4.0) with 3+ years of industry experience. As a SQL Developer at Yardi, I built and optimized production reporting on financial data (accounts payable, receivable and general ledger) for real estate and financial-services clients across 100+ projects.</p>
-      <p>Since then I've built and deployed machine learning projects end to end: classification, clustering, forecasting and NLP models, served through FastAPI, Docker and live web apps. I care most about why a piece of work is needed, and I write that down before I start building.</p>
+      <p>Since then I've built and deployed projects end to end: classification, clustering, forecasting, reinforcement learning, NLP and LLM agents, served through FastAPI, Docker and live web apps. I care most about why a piece of work is needed, and I write that down before I start building.</p>
       <ul class="chips" aria-label="Core skills">
-        <li>SQL / T-SQL</li><li>Python</li><li>scikit-learn</li><li>TensorFlow &amp; PyTorch</li><li>NLP &amp; Transformers</li><li>Tableau</li><li>Power BI</li><li>Statistics &amp; hypothesis testing</li><li>ETL &amp; data quality</li><li>FastAPI &amp; Docker</li><li>GitHub Actions CI</li>
+        <li>SQL / T-SQL</li><li>MySQL &amp; SQL Server</li><li>Python</li><li>scikit-learn &amp; XGBoost</li><li>TensorFlow &amp; PyTorch</li><li>NLP &amp; Transformers</li><li>Reinforcement learning</li><li>RAG &amp; LangGraph agents</li><li>Tableau</li><li>Power BI</li><li>Statistics &amp; hypothesis testing</li><li>ETL &amp; data quality</li><li>FastAPI &amp; Docker</li><li>GitHub Actions CI</li>
       </ul>
     </section>
 
@@ -152,22 +188,25 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
       <h2 id="exp-h">Work experience</h2>
 
       <article class="job">
-        <header><h3>Technical Assistant / Automation Specialist</h3><span class="when">2026</span></header>
+        <header><h3>Technical Assistant / Automation Specialist</h3><span class="when">February – September 2026</span></header>
         <p class="org">Advisor Insurance Group, USA</p>
         <ul>
-          <li>Extracted and organized insurance data from NowCerts, maintained policy records, and built automated reports for recurring operational workflows to cut manual effort.</li>
+          <li>Extracted and organized insurance data from NowCerts, maintained policy records, and built Python automation that replaced manual tracking and Excel entry, <strong>automating 3 recurring reports</strong> (NowCerts to Excel, and Excel back to NowCerts by bulk import).</li>
           <li>Analyzed workflows for automation opportunities, proposed an automation solution to the Principal Advisor, and shared process-improvement recommendations with internal stakeholders and external product partners.</li>
         </ul>
       </article>
 
       <article class="job">
-        <header><h3>SQL Developer</h3><span class="when">2021 – 2024</span></header>
+        <header><h3>SQL Developer (SME)</h3><span class="when">July 2021 – April 2024</span></header>
         <p class="org">Yardi Software India Pvt. Ltd.</p>
         <ul>
-          <li>Optimized SQL Server joins, subqueries, stored procedures and triggers to fix report timeouts, cutting a critical report's runtime from about an hour to under 5 minutes.</li>
+          <li>Delivered <strong>100+ client projects</strong>, building 2–3 production SQL/SSRS reporting solutions a day (up to 4 at peak) for real estate and financial-services clients in the US and Germany.</li>
+          <li>Optimized SQL Server joins, subqueries, stored procedures and triggers to fix report timeouts, cutting a report's runtime from about an hour to <strong>under 5 minutes (over 90% faster)</strong>.</li>
           <li>Built automated SQL workflows that flag lease and registration renewals, invoices and financial reports due within 30-, 60- and 90-day windows and trigger rule-based notifications to primary contacts.</li>
-          <li>Reconciled AP, AR and GL data with SQL and Excel audit-table checks, validated outputs against source systems like Salesforce, and fixed a recurring GL mismatch in the query logic.</li>
+          <li>Reconciled AP, AR and GL data with SQL and Excel audit-table checks, validated outputs against source systems like Salesforce, and fixed a recurring GL mismatch in the query logic. Used Excel forecasting on audit tables to project upcoming client balances.</li>
+          <li>Built procure-to-pay workflows (requisitions, purchase orders, receipts, three-way matching, approvals and payment runs) with automated email notifications and reports, and traced ledger, GL and bank mismatches to their source.</li>
           <li>Traced a report returning zero records to a missing upstream data workflow, helped implement it, and delivered the report.</li>
+          <li>Ran data migration checks and testing on a large platform migration, found a critical bug, advised the principal consultant on how the migration could be done better, and wrote documentation that became the team's reference.</li>
           <li>Gathered requirements with clients in Germany and the US, mentored a team member, and ran knowledge transfers for multiple teams.</li>
           <li>Best Employee Award for two consecutive quarters (2022) and Employee of the Month five times (2022–2023).</li>
         </ul>
@@ -177,14 +216,81 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
     <section id="projects" aria-labelledby="proj-h">
       <h2 id="proj-h">Major projects</h2>
 
-      <article class="project featured">
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="sql" aria-pressed="false">SQL</button>
+        <button type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
+        <button type="button" data-filter="nlp" aria-pressed="false">NLP</button>
+        <button type="button" data-filter="genai" aria-pressed="false">LLM &amp; agents</button>
+        <button type="button" data-filter="bi" aria-pressed="false">Dashboards</button>
+      </div>
+
+      <article class="project featured" data-cat="sql ml genai">
+        <header><h3>AI-Powered Supply Chain Intelligence Platform</h3><span class="tag">Live demo</span></header>
+        <p class="stack">Python, SQL, XGBoost, PPO, Gymnasium, FastAPI, FAISS, LoRA, LangGraph, Streamlit, Pytest, GitHub Actions</p>
+        <p class="why"><b>Why:</b> operational decisions need clear, early visibility into late deliveries, demand and inventory.</p>
+        <p class="result">Cleaned and modeled 180K+ order-item records, completed the full exploratory analysis (class-imbalance and data-leakage checks), and built demand forecasting, inventory optimization (safety stock, reorder point, EOQ) across 100 products, and an XGBoost late-delivery model, served through FastAPI with a 46-test Pytest suite in GitHub Actions CI.</p>
+        <div class="metrics">
+          <div class="metric"><strong>74.2%</strong><span>ROC-AUC, late-delivery risk</span></div>
+          <div class="metric"><strong>100</strong><span>products optimized</span></div>
+          <div class="metric"><strong>46</strong><span>automated tests in CI</span></div>
+        </div>
+        <div class="more" id="scMore">
+          <p><b>Reinforcement learning, tested honestly.</b> To test whether a learned policy beats classical inventory rules, I built a Gymnasium replenishment environment and trained PPO agents for 4 products, benchmarked against the (ROP, EOQ) policy and tuned (s, Q) and base-stock policies under ±30% demand shifts. PPO cut cost 9.5–79% versus the original policy at 100% fill, but a tuned (s, Q) policy (reorder point ×1.5) matched or beat it and cut cost about 30% on an unseen product, under an assumed lost-sale cost.</p>
+          <p><b>GenAI layer.</b> A RAG assistant (document chunking, sentence-transformer embeddings, FAISS vector search, exact-record lookup, a versioned prompt module), a LoRA fine-tuned LLM (1,832 examples, evaluated on 148 held-out examples) and a LangGraph inventory agent with EOQ, safety-stock and reorder-point tools and conversation memory, with a live chat demo.</p>
+        </div>
+        <button class="toggle" type="button" data-target="scMore" aria-expanded="false">Show the RL and GenAI details</button>
+        <div class="plinks">
+          <a href="https://supply-chain-assistant-demo.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a>
+          <a href="https://github.com/Shreyashree-Mondal/supply-chain-intelligence" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
+      </article>
+
+      <article class="project featured" data-cat="sql ml">
+        <header><h3>Music Recommendation System and MoodMix</h3><span class="tag">SQL + ML</span></header>
+        <p class="stack">MySQL, Aiven cloud MySQL, scikit-learn, SHAP, Streamlit, Pytest, GitHub Actions</p>
+        <p class="why"><b>Why:</b> personalized recommendations only work on clean, well-structured data.</p>
+        <p class="result">Designed a normalized 3NF MySQL database with 17 tables, 3 views, 4 stored procedures and 6 triggers for 550+ tracks, 150+ artists and 50+ genres. The SQL version retrieves and ranks songs with SQL and a weighted score (audio similarity 50%, popularity 30%, user ratings 20%), with search, filtering and in-browser playback, running on managed cloud MySQL and deployed so anyone can try it without installing anything.</p>
+        <div class="metrics">
+          <div class="metric"><strong>17</strong><span>tables in the 3NF schema</span></div>
+          <div class="metric"><strong>550+</strong><span>tracks</span></div>
+          <div class="metric"><strong>60.37%</strong><span>Random Forest accuracy (MoodMix)</span></div>
+        </div>
+        <div class="more" id="musicMore">
+          <p><b>MoodMix, the ML version.</b> Extends the same dataset (it does not use SQL ranking) with Decision Tree, Random Forest and SVM models tuned with GridSearchCV/RandomizedSearchCV and cross-validation to predict preferences and generate recommendations (Decision Tree 63.38% F1), with SHAP explanations and Pytest tests running in GitHub Actions CI.</p>
+        </div>
+        <button class="toggle" type="button" data-target="musicMore" aria-expanded="false">Show the ML version</button>
+        <div class="plinks">
+          <a href="https://music-recommendation-app-wmvz5zgemzwmmxvmkyzvhh.streamlit.app/" target="_blank" rel="noopener">Try the SQL version live</a>
+          <a href="https://github.com/Shreyashree-Mondal/music-recommendation-app" target="_blank" rel="noopener">SQL version on GitHub</a>
+          <a href="https://moodmix-py.streamlit.app/" target="_blank" rel="noopener">Try MoodMix live</a>
+          <a href="https://github.com/Shreyashree-Mondal/Moodmix" target="_blank" rel="noopener">MoodMix on GitHub</a>
+        </div>
+      </article>
+
+      <article class="project" data-cat="ml">
+        <header><h3>Transaction Compliance Monitoring</h3><span class="tag">Team lead</span></header>
+        <p class="stack">Python, PyOD (CBLOF), scikit-learn, SHAP, pandas</p>
+        <p class="why"><b>Why:</b> fraud is rare and its patterns change, so labeled examples are scarce, and reviewers need to see likely fraud first.</p>
+        <p class="result">Compared three unsupervised anomaly-detection methods (CBLOF, K-Means and Local Outlier Factor) on credit-card transactions, and chose CBLOF. I then added rule checks for high-value, round and zero amounts and measured their value: the rules added 46 flags and no extra fraud, so the review queue is ranked by anomaly score, with rule hits kept as reason tags. Each flag is explained with SHAP (via a surrogate model, out-of-bag R² 0.84) and logged with its score, rule tags, top reasons, model settings and timestamp for reviewer traceability.</p>
+        <div class="metrics">
+          <div class="metric"><strong>70%</strong><span>Fraud caught (recall)</span></div>
+          <div class="metric"><strong>45%</strong><span>Precision</span></div>
+          <div class="metric"><strong>14 of 20</strong><span>fraud cases on 1,020 transactions</span></div>
+        </div>
+        <div class="plinks">
+          <a href="https://github.com/Shreyashree-Mondal/credit-card-fraud-detection" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="project" data-cat="ml nlp">
         <header><h3>News Headline Classification</h3><span class="tag">Live</span></header>
         <p class="stack">TensorFlow / Keras, Word2Vec, FastAPI, Docker, Streamlit, GitHub Actions</p>
         <p class="why"><b>Why:</b> tagging news by topic by hand doesn't scale, and a model stuck in a notebook can't be used by anyone.</p>
-        <p class="result">Trained FFN, RNN and LSTM models on Word2Vec embeddings over 15,000 headlines in three categories, then served the best one through a Dockerized FastAPI service with automated tests and a live web app.</p>
+        <p class="result">Trained FFN, RNN and LSTM models on Word2Vec embeddings over 15,000 headlines in three categories (Politics, Business, Sports), then served the best one, a 2-layer LSTM, through a Dockerized FastAPI service tested in CI on every push, with a live web app.</p>
         <div class="metrics">
           <div class="metric"><strong>88.93%</strong><span>LSTM test accuracy</span></div>
-          <div class="metric"><strong>0.889</strong><span>Macro F1</span></div>
+          <div class="metric"><strong>0.889</strong><span>Macro F1 on 3,000 test headlines</span></div>
         </div>
         <div class="plinks">
           <a href="https://shreyashree-news-classifier.streamlit.app" target="_blank" rel="noopener">Try the live demo</a>
@@ -192,65 +298,85 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
         </div>
       </article>
 
-      <article class="project featured">
+      <article class="project" data-cat="ml nlp">
         <header><h3>Headline Generation with PEGASUS</h3><span class="tag">Team lead</span></header>
         <p class="stack">HuggingFace Transformers, PEGASUS, T5, DistilBART, Flask</p>
         <p class="why"><b>Why:</b> writing headlines by hand is slow, and it wasn't clear which transformer writes the most accurate ones.</p>
-        <p class="result">Led a three-person team benchmarking three models on 120K+ news articles. I fine-tuned PEGASUS (570M+ parameters), which scored highest against the real headlines. A Flask web app to serve it is in progress.</p>
+        <p class="result">Led a three-person team benchmarking three models on 120K+ news articles. I fine-tuned PEGASUS (570M+ parameters), tuning beam size and length penalty, and it scored highest against the real headlines. A Flask web app to serve it is in progress.</p>
         <div class="metrics">
           <div class="metric"><strong>70.5%</strong><span>ROUGE-L</span></div>
           <div class="metric"><strong>92.72%</strong><span>BERTScore</span></div>
         </div>
+        <div class="plinks">
+          <a href="https://github.com/Shreyashree-Mondal/ag-news-classification-headline-generation" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
         <p class="muted">Web app coming soon.</p>
       </article>
 
-      <article class="project">
-        <header><h3>Music Recommendation System and MoodMix</h3><span class="tag">SQL + ML</span></header>
-        <p class="stack">MySQL, scikit-learn, Aiven cloud MySQL, Streamlit, Pytest</p>
-        <p class="why"><b>Why:</b> personalized recommendations only work on clean, well-structured data.</p>
-        <p class="result">Designed a normalized MySQL database with 17 tables, stored procedures and triggers for 550+ tracks, 150+ artists and 50+ genres. The ML version, MoodMix, trains tuned Decision Tree, Random Forest and SVM models to predict preferences and generate recommendations, with tests running in CI.</p>
-        <div class="plinks">
-          <a href="https://github.com/Shreyashree-Mondal/music-recommendation-app" target="_blank" rel="noopener">SQL version on GitHub</a>
-          
-          <a href="https://github.com/Shreyashree-Mondal/Moodmix" target="_blank" rel="noopener">MoodMix on GitHub</a>
-	  <a href="https://moodmix-py.streamlit.app/" target="_blank" rel="noopener">Try MoodMix live</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <header><h3>Credit Card Fraud Detection</h3><span class="tag">Team lead</span></header>
-        <p class="stack">Python, scikit-learn</p>
-        <p class="why"><b>Why:</b> fraud is rare and its patterns change, so labeled examples are scarce.</p>
-        <p class="result">Compared three unsupervised anomaly-detection methods (CBLOF, K-Means and Local Outlier Factor) on credit-card transactions. CBLOF performed best.</p>
-        <div class="metrics">
-          <div class="metric"><strong>70%</strong><span>Fraud caught (recall)</span></div>
-          <div class="metric"><strong>45%</strong><span>Precision</span></div>
-        </div>
-        <div class="plinks">
-          <a href="https://github.com/Shreyashree-Mondal/credit-card-fraud-detection" target="_blank" rel="noopener">View on GitHub</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <header><h3>Toxic Beauty: Hazardous Chemicals in Cosmetics</h3><span class="tag">Tableau</span></header>
+      <article class="project" data-cat="bi">
+        <header><h3>Toxic Beauty: Hazardous Chemicals in Cosmetics</h3><span class="tag">Tableau · Team of 3</span></header>
         <p class="stack">Tableau (dashboards, Story, parameters, dashboard actions)</p>
         <p class="why"><b>Why:</b> public data on hazardous chemicals in cosmetics is hard for consumers and regulators to interpret.</p>
-        <p class="result">Joined 114K+ California product records with the state's hazard list. I built the "Identifying High-Risk Product Categories" dashboard, with a severity classification, Top-N brand ranking, risk gauge and click-to-filter actions, and co-created the team's Tableau Story.</p>
-        <div class="metrics">
-          <div class="metric"><strong>71%</strong><span>Hazard records involving serious health risks</span></div>
+        <p class="result">Joined 114K+ California product records with the state's hazard list. I built the "Identifying High-Risk Product Categories" dashboard, with a severity classification, Top-N brand ranking, risk gauge and click-to-filter actions, and co-created the team's Tableau Story. Click through how it works:</p>
+
+        <div id="tbWidget">
+          <div class="tb-tabs" role="tablist" aria-label="How the Toxic Beauty dashboard works">
+            <button class="tb-tab" role="tab" id="tb-t1" aria-controls="tb-p1" aria-selected="true" type="button">1. Join the data</button>
+            <button class="tb-tab" role="tab" id="tb-t2" aria-controls="tb-p2" aria-selected="false" type="button">2. Classify severity</button>
+            <button class="tb-tab" role="tab" id="tb-t3" aria-controls="tb-p3" aria-selected="false" type="button">3. Rank brands</button>
+            <button class="tb-tab" role="tab" id="tb-t4" aria-controls="tb-p4" aria-selected="false" type="button">4. Click to filter</button>
+          </div>
+          <div class="tb-panel" role="tabpanel" id="tb-p1" aria-labelledby="tb-t1">
+            <h4>Start from two public sources</h4>
+            <p>California's product records joined with the state's hazard list, so every product can be checked against known hazardous chemicals.</p>
+            <div class="tb-big">114K+<small>California product records joined with the hazard list</small></div>
+          </div>
+          <div class="tb-panel" role="tabpanel" id="tb-p2" aria-labelledby="tb-t2" hidden>
+            <h4>Separate serious hazards from the rest</h4>
+            <p>Each hazard record gets a severity class, so the dashboard can focus on the records that involve serious health risks.</p>
+            <div class="tb-big"><span id="tbPct">71</span>%<small id="tbCaption">of hazard records involve serious health risks</small></div>
+            <div class="tb-bar" aria-hidden="true"><span class="tb-serious" id="tbSerious" style="width:71%"></span><span class="tb-other" id="tbOther" style="width:29%"></span></div>
+            <div class="tb-legend">
+              <button type="button" id="tbShowSerious" aria-pressed="true">Serious health risks (71%)</button>
+              <button type="button" id="tbShowOther" aria-pressed="false">Other hazard records (29%)</button>
+            </div>
+          </div>
+          <div class="tb-panel" role="tabpanel" id="tb-p3" aria-labelledby="tb-t3" hidden>
+            <h4>Top-N brand ranking and risk gauge</h4>
+            <p>The dashboard ranks brands in a Top-N view and shows a risk gauge, so the highest-ranked brands stand out at a glance.</p>
+          </div>
+          <div class="tb-panel" role="tabpanel" id="tb-p4" aria-labelledby="tb-t4" hidden>
+            <h4>Click a bar, filter the story</h4>
+            <p>Dashboard actions let a viewer click a product category or brand and filter every other view, so questions can be answered without writing a query.</p>
+          </div>
         </div>
+
         <div class="plinks">
           <a href="https://github.com/Shreyashree-Mondal/toxic-beauty-tableau" target="_blank" rel="noopener">View on GitHub</a>
         </div>
       </article>
 
-      <article class="project">
-        <header><h3>AI-Powered Supply Chain Intelligence Platform</h3><span class="tag">In progress</span></header>
-        <p class="stack">Python, SQL, Power BI, Gradient Boosting, XGBoost</p>
-        <p class="why"><b>Why:</b> operational decisions need clear, early visibility into late deliveries, demand and inventory.</p>
-        <p class="result">Cleaned and modeled 180K+ order-item records, completed the full exploratory analysis, and built tuned Gradient Boosting and XGBoost models to predict late-delivery risk. Demand forecasting, inventory optimization and Power BI dashboards are next.</p>
+      <article class="project" data-cat="genai">
+        <header><h3>AI Word Arena: Agentic Language-Learning Game</h3><span class="tag">Live</span></header>
+        <p class="stack">Python, Groq LLM agents, OOP, Streamlit, Pytest</p>
+        <p class="why"><b>Why:</b> language practice works better when the exercises adapt to the learner.</p>
+        <p class="result">Designed adaptive LLM-agent workflows with OOP classes for agent logic, learner-state tracking, dynamic content generation and difficulty adjustment, deployed as a live Streamlit game.</p>
         <div class="metrics">
-          <div class="metric"><strong>74.2%</strong><span>ROC-AUC, late-delivery risk</span></div>
+          <div class="metric"><strong>540+</strong><span>automated Pytest tests</span></div>
+        </div>
+        <div class="plinks">
+          <a href="https://ai-word-arena.streamlit.app/" target="_blank" rel="noopener">Play the live demo</a>
+          <a href="https://github.com/Shreyashree-Mondal/ai-word-arena" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
+      </article>
+
+      <article class="project" data-cat="ml">
+        <header><h3>Brain Tumor Detection from MRI Images</h3><span class="tag">Image analysis</span></header>
+        <p class="stack">Python, OpenCV, clustering</p>
+        <p class="why"><b>Why:</b> tissue boundaries in MRI scans are blurry, which is what fuzzy clustering is designed to handle.</p>
+        <p class="result">Built a detection pipeline for MRI images: preprocessing, segmentation and Trapezoidal Neutrosophic Fuzzy C-Means clustering.</p>
+        <div class="metrics">
+          <div class="metric"><strong>~88%</strong><span>accuracy</span></div>
         </div>
       </article>
 
@@ -279,8 +405,67 @@ footer{color:var(--ink-soft);font-size:14px;border-top:1px solid var(--line);pad
       </ul>
     </section>
 
-    <footer>Open to data scientist, data analyst and data engineering roles in India. The quickest way to reach me is by email or LinkedIn.</footer>
+    <footer>Open to data scientist, data analyst, SQL developer and data engineering roles in India. The quickest way to reach me is WhatsApp, email or LinkedIn.</footer>
   </main>
 </div>
+
+<script>
+(function () {
+  /* show more / less */
+  document.querySelectorAll('.toggle').forEach(function (btn) {
+    var base = btn.textContent;
+    btn.addEventListener('click', function () {
+      var box = document.getElementById(btn.getAttribute('data-target'));
+      var open = box.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      btn.textContent = open ? 'Show less' : base;
+    });
+  });
+
+  /* project filters */
+  var fbtns = document.querySelectorAll('.filters button');
+  var projects = document.querySelectorAll('.project');
+  fbtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter');
+      fbtns.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      projects.forEach(function (p) {
+        var cats = (p.getAttribute('data-cat') || '').split(' ');
+        p.classList.toggle('hidden', f !== 'all' && cats.indexOf(f) === -1);
+      });
+    });
+  });
+
+  /* Toxic Beauty explainer */
+  var root = document.getElementById('tbWidget');
+  if (!root) return;
+  var tabs = root.querySelectorAll('.tb-tab'), panels = root.querySelectorAll('.tb-panel');
+  function setBar(serious) {
+    document.getElementById('tbPct').textContent = serious ? 71 : 29;
+    document.getElementById('tbSerious').style.opacity = serious ? 1 : .3;
+    document.getElementById('tbOther').style.opacity = serious ? .5 : 1;
+    document.getElementById('tbShowSerious').setAttribute('aria-pressed', serious);
+    document.getElementById('tbShowOther').setAttribute('aria-pressed', !serious);
+    document.getElementById('tbCaption').textContent = serious
+      ? 'of hazard records involve serious health risks'
+      : 'of hazard records do not involve serious health risks';
+  }
+  function show(i) {
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i); });
+    panels.forEach(function (p, k) { p.hidden = k !== i; });
+    if (i === 1) setBar(true);
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(i); });
+    t.addEventListener('keydown', function (e) {
+      var n = tabs.length;
+      if (e.key === 'ArrowRight') { tabs[(i + 1) % n].focus(); show((i + 1) % n); }
+      if (e.key === 'ArrowLeft') { tabs[(i + n - 1) % n].focus(); show((i + n - 1) % n); }
+    });
+  });
+  document.getElementById('tbShowSerious').addEventListener('click', function () { setBar(true); });
+  document.getElementById('tbShowOther').addEventListener('click', function () { setBar(false); });
+})();
+</script>
 </body>
 </html>
